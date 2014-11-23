@@ -35,12 +35,25 @@
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
+                <a href="javascript:captura()">Capturar</a>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
+			function captura(){
+				alert("Capturando");
+				navigator.screenshot.URI(function(error,res){
+  if(error){
+    alert(error);
+  }else{
+    html = '<img style="width:50%;" src="'+res.URI+'">';
+    document.body.innerHTML = html;
+  }
+},50);
+				
+				}
         </script>
     </body>
 </html>
